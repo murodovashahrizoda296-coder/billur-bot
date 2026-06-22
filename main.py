@@ -225,3 +225,7 @@ print("Guruh: @billur_on")
 print("Botni toxtatish uchun: Ctrl+C")
 
 bot.infinity_polling()
+@bot.message_handler(content_types=['photo'])
+def get_photo_id(message):
+    file_id = message.photo[-1].file_id
+    bot.send_message(message.chat.id, "file_id: " + file_id)
